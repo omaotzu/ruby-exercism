@@ -12,10 +12,7 @@ class Squares
   end
 
   def sum_of_squares
-    squaredArray = []
-    for i in 0..@value
-      squaredArray<< i**2
-    end
+    squaredArray = (0..@value).map { |instance| instance**2}
     return squaredArray.inject(:+)
   end
 
