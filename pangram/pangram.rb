@@ -5,9 +5,6 @@ end
 class Pangram
   ENGLISH_ALPHABET = Array "a".."z"
   def self.pangram?(string, alphabet = ENGLISH_ALPHABET)
-    s.downcase.each_char do |char|
-      alphabet.delete(char)
-    end
-    alphabet.empty?
+    (alphabet - string.downcase.chars).empty?
   end
 end
