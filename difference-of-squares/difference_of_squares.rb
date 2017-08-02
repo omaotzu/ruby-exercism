@@ -4,19 +4,18 @@ end
 
 class Squares
   def initialize(value)
-    @value = value
+    @value = 0..value
   end
 
   def square_of_sum
-    return (0..@value).inject(:+)**2
+    @value.reduce(:+)**2
   end
 
   def sum_of_squares
-    squaredArray = (0..@value).map { |instance| instance**2}
-    return squaredArray.inject(:+)
+    @value.reduce { |sum, instance| sum + instance**2}
   end
 
   def difference
-    return square_of_sum - sum_of_squares
+    square_of_sum - sum_of_squares
   end
 end
