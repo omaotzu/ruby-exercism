@@ -3,10 +3,9 @@ module BookKeeping
 end
 
 class Pangram
-  def self.pangram?(string)
-    characters = string.downcase.chars
-    alphabet = ("a".."z").to_a
-    characters.each do |char|
+  ENGLISH_ALPHABET = Array "a".."z"
+  def self.pangram?(string, alphabet = ENGLISH_ALPHABET)
+    s.downcase.each_char do |char|
       alphabet.delete(char)
     end
     alphabet.empty?
