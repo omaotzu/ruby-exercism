@@ -3,13 +3,12 @@ module BookKeeping
 end
 
 class Pangram
-  def self.pangram?(input)
+  def self.pangram?(string)
+    characters = string.downcase.chars
     alphabet = ("a".."z").to_a
-    arr = input.gsub(/[^a-z]/i, '').downcase.chars.to_a.uniq.sort
-    if alphabet == arr then
-      return true
-    else
-      return false
+    characters.each do |char|
+      alphabet.delete(char)
     end
+    alphabet.empty?
   end
 end
